@@ -8,8 +8,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringEncoder;
 
-import java.util.Date;
-
 public class NettyClient {
     public static void main(String[] args) throws InterruptedException {
         EventLoopGroup workGroup = new NioEventLoopGroup();
@@ -19,15 +17,14 @@ public class NettyClient {
                 .channel(NioSocketChannel.class)
                 .handler(new ChannelInitializer<Channel>() {
                     @Override
-                    protected void initChannel(Channel ch) throws Exception {
-                        ch.pipeline().addLast(new StringEncoder());
+                    protected void initChannel(Channel ch) {
+                        ch.pipeline()
+                                .addLast(new StringEncoder())
+                                .addLast(new FirstClientHandler());
+
                     }
                 });
 
-        Channel channel = bootstrap.connect("localhost", 8000).channel();
-        while (true) {
-            channel.writeAndFlush(new Date() + " : hello world!");
-            Thread.sleep(2000);
-        }
+        bootstrap.connect("localhost", 8000).sync();
     }
 }
