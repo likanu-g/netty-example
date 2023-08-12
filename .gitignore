@@ -44,3 +44,4 @@ build/
 .idea/scala_settings.xml
 .idea/vcs.xml
 .idea/workspace.xml
+.idea/inspectionProfiles/Project_Default.xml
