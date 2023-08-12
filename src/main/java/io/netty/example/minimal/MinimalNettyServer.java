@@ -31,6 +31,7 @@ public class MinimalNettyServer {
                     @Override
                     protected void initChannel(NioSocketChannel ch) {
                         
+
                     }
                 });
 
