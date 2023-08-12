@@ -36,3 +36,11 @@ build/
 
 ### Mac OS ###
 .DS_Store
+.idea/uiDesigner.xml
+.idea/codeStyles/codeStyleConfig.xml
+.idea/codeStyles/Project.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/scala_settings.xml
+.idea/vcs.xml
+.idea/workspace.xml
